@@ -1,0 +1,53 @@
+{
+  "name": "Amazon Number Checker API",
+  "slug": "amazon-number-checker-api",
+  "description": "Bulk asynchronous file-based API used to check Amazon account registration by phone number or email address.",
+  "canonical_docs": "https://docs.checknumber.ai/amazon-bulk-number-checker",
+  "dashboard": "https://platform.checknumber.ai",
+  "base_url": "https://api.checknumber.ai",
+  "auth": {
+    "type": "api_key",
+    "header": "X-API-Key"
+  },
+  "endpoints": {
+    "create_task": {
+      "method": "POST",
+      "path": "/v1/tasks"
+    },
+    "get_task": {
+      "method": "POST",
+      "path": "/v1/gettasks"
+    },
+    "balance": {
+      "method": "GET",
+      "path": "/v1/balance"
+    }
+  },
+  "input": {
+    "file_format": "text; one E.164 phone number per line, or one email per line for email task types"
+  },
+  "result_fields": [
+    {
+      "field": "Number",
+      "description": "Phone number in E.164 format",
+      "example": "+41798284651"
+    },
+    {}
+  ],
+  "products": [
+    {
+      "task_type": "amazon",
+      "name": "Amazon Phone Number Checker",
+      "doc_slug": "amazon-bulk-number-checker",
+      "input_kind": "phone"
+    },
+    {
+      "task_type": "amazon_email",
+      "name": "Amazon Email Checker",
+      "doc_slug": "amazon-email-checker",
+      "input_kind": "email"
+    }
+  ],
+  "pricing_url": "https://checknumber.ai/pricing",
+  "last_updated": "2026-07-13"
+}
