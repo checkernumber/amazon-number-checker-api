@@ -21,8 +21,8 @@ curl -X POST "https://api.checknumber.ai/v1/gettasks" -H "X-API-Key: ${CHECKNUMB
 
 | Code | Name | Input | Limits | Result fields | Documentation |
 | --- | --- | --- | --- | --- | --- |
-| `amazon` | Number Checker | phone | 100–10000000 rows | `number, activated` | [docs](https://docs.checknumber.ai/amazon-bulk-number-checker) |
-| `amazon_email` | Email Checker | email | 100–10000000 rows | `email, activated` | [docs](https://docs.checknumber.ai/amazon-email-checker) |
+| `amazon` | Number Checker | phone | 1–10,000,000 rows | `number, activated` | [docs](https://docs.checknumber.ai/amazon-bulk-number-checker) |
+| `amazon_email` | Email Checker | email | 1–10,000,000 rows | `email, activated` | [docs](https://docs.checknumber.ai/amazon-email-checker) |
 
 ## Response and boundaries
 
@@ -42,4 +42,14 @@ Seven self-contained examples are provided under `examples/`: Python, Node.js, G
 - Pricing: https://checknumber.ai/pricing
 - OpenAPI contract: [openapi.yaml](openapi.yaml)
 
-Last reviewed: 2026-08-18.
+Last reviewed: 2026-10-30.
+
+
+## Upload and billing limits verified 2026-10-30
+
+| Task type | Minimum upload | Maximum upload | Minimum billable quantity |
+| --- | ---: | ---: | ---: |
+| `amazon` | 1 | 10,000,000 | 500 |
+| `amazon_email` | 1 | 10,000,000 | 500 |
+
+Upload minimum and minimum billable quantity are different. A smaller accepted upload can still be billed at the stated minimum. Zero means no billing floor. A wholly failed/unprocessed task is not charged a fabricated minimum. Check current account pricing before submitting.
